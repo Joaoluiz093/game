@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor de Mapa Avançado</title>
+    <link rel="stylesheet" href="css/editor.css">
+</head>
+<body>
+    <h1>Editor de Mapa</h1>
+    <div class="toolbar">
+        <button onclick="setCurrentTool('select')">Selecionar</button>
+        <button onclick="fillMapWithSelectedTile()">Pintar</button>
+        <button onclick="setCurrentTool('erase')">Apagar</button>
+        <button onclick="saveMap()">Salvar Mapa</button>
+        <button onclick="loadMap()">Carregar Mapa</button>
+        <input type="file" id="tileUpload" accept="image/*" onchange="uploadTile()">
+        
+    </div>
+    <div class="editor-container">
+        <div class="tile-palette">
+            <h3>Paleta de Tiles</h3>
+            <canvas id="paletteCanvas" width="128" height="256"></canvas>
+        </div>
+        <div class="map-editor">
+            <canvas id="mapCanvas" width="640" height="480"></canvas>
+        </div>
+        <div class="layers">
+            <h3>Camadas</h3>
+            <button onclick="setCurrentLayer('ground')">Ground</button>
+            <br><br>
+            <button onclick="setCurrentTool('block')">Bloqueio</button>
+            <br><br>
+            <button onclick="setCurrentLayer('mask')">Mask</button>
+            <br><br>
+            <button onclick="setCurrentLayer('fringe')">Fringe</button>
+            <br><br>
+            <button onclick="activateNPCMode()">Bau</button>
+        </div>
+    </div>
+    
+    <div id="coordinates">Coordenadas: X: 0, Y: 0</div>
+    
+    <script src="js/editor.js"></script>
+</body>
+</html>
